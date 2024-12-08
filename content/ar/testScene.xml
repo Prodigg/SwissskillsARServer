@@ -4,4 +4,26 @@
       <TEXT label="Text field" rgba="00ff0088" backrgba="ffffff88" border="2" width="100" />
     </NODE>
   </IMGTARGET>
+  <CAMERA x="0" y="0" distance="0.1">
+     <NODE tx="0.5" ty="0.5">
+      <TEXT label="Text field" rgba="00ffffff" border="2" width="100" />
+    </NODE>
+     <NODE tx="0" ty="0" show="false">
+      <TEXT label="This is a example test" rgba="000000ff" backrgba="ffffff88" border="1"/>
+    </NODE>
+    <NODE tx="-35" ty="0" tz="100" sxyz="1" show="true">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88">
+        <METADATA fallback="en">
+          <label>
+            <en>
+              <![CDATA[ <align="left">test label (language: en) ]]>
+            </en>
+            <de>
+              <![CDATA[ <align="left">test label (language: de) ]]>
+            </de>
+          </label>
+        </METADATA>
+      </TEXT>
+    </NODE>
+  </CAMERA>
 </AUGMENTATION>
