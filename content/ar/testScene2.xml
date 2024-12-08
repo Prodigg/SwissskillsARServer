@@ -1,0 +1,30 @@
+<AUGMENTATION viewlist="normal,extended" name="testScene2" desc="this is the second test Scene" viewswitch="false" viewdisplay="false">
+  <VALUESERVER>
+    <WEBSOCKET url="ws://nodered.local:1880/ws/data"/>
+  </VALUESERVER>
+  <IMGTARGET file="Marker_10.jpg">
+    <NODE tx="0.14" ty="0.2">
+      <COUNTER value="@anim:itemCount:1.5" intdigits="3" fractdigits="0"/>
+    </NODE>
+    <NODE tx="-0.1" ty="0.2" view="extended">
+      <VIEWER picture="http://srv.lan/cam/now.jpg" w="0.2" h="0.3"/>
+      <NODE ty="0.13" sxyz="0.1" view="extended">
+        <TEXT label="@anim:time" rgba="00ff" backrgba="8088"/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+  <IMGTARGET file="Marker_20.jpg">
+    <NODE>
+      <MODEL file="obj/model.obj"/>
+      <NODE tx="0.15" ty="0.08" tz="0.02">
+        <LINK w="0.04" h="0.02" d="0.05" refer="http://srv.lan/info.htm">
+          <METADATA>
+            <refer>
+              <de>http://srv.lan/info-de.htm</de>
+            </refer>
+          </METADATA>
+        </LINK>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+</AUGMENTATION>

@@ -1,0 +1,14 @@
+<DIRECTORY name="testScene (v1.0.0 - dev)">
+    <METADATA fallback="en">
+        <desc>
+            <de>
+                <![CDATA[ Dies ist ein test text (language: de) ]]>
+            </de>
+            <en>
+                <![CDATA[ This is a test test (language: en) ]]>
+            </en>
+        </desc>
+    </METADATA>
+    <ENTRY url="testScene.xml"/>
+    <ENTRY url="testScene2.xml"/>
+</DIRECTORY>

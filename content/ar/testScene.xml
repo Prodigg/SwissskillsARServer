@@ -1,0 +1,7 @@
+<AUGMENTATION viewlist="normal,extended" name="testScene" desc="this is the first test Scene" viewswitch="false" viewdisplay="false">
+  <IMGTARGET file="Marker_20.jpg">
+    <NODE tx="0.15" ty="0.08" tz="0.02">
+      <TEXT label="Text field" rgba="00ff0088" backrgba="ffffff88" border="2" width="100" />
+    </NODE>
+  </IMGTARGET>
+</AUGMENTATION>
