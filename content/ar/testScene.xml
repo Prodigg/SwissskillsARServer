@@ -1,7 +1,18 @@
 <AUGMENTATION viewlist="normal,extended" name="testScene" desc="this is the first test Scene" viewswitch="false" viewdisplay="false">
-  <IMGTARGET file="Marker_20.jpg">
-    <NODE tx="0.15" ty="0.08" tz="0.02">
-      <TEXT label="Text field" rgba="00ff0088" backrgba="ffffff88" border="2" width="100" />
+  <IMGTARGET file="Marker_20.jpg" width="10" extended="true">
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88">
+        <METADATA fallback="en">
+          <label>
+            <en>
+              <![CDATA[ <align="left">test ar label (language: en) ]]>
+            </en>
+            <de>
+              <![CDATA[ <align="left">test ar label (language: de) ]]>
+            </de>
+          </label>
+        </METADATA>
+      </TEXT>
     </NODE>
   </IMGTARGET>
   <CAMERA x="0" y="0" distance="0.1">
