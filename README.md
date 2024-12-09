@@ -1,4 +1,4 @@
-# SeissSkills AR Server
+# SwissSkills AR Server
 
 # dependencies
 
