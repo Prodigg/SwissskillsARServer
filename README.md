@@ -26,3 +26,7 @@ http://IP-ADRESS:8000/index.xml
 07.12.2024 commit [e120a57](https://github.com/Prodigg/SwissskillsARServer/commit/e120a576cec40a78a45569a7d30e14d8e2eac14a) first text rendering on AR device
 
 09.12.2024 commit [70fc2cb](https://github.com/Prodigg/SwissskillsARServer/commit/70fc2cb90d3fed71d9154338116f587f5aaa801c) first text on imgtarget with marker_20.jpg
+
+10.12.2024 commit [87c8a9b](https://github.com/Prodigg/SwissskillsARServer/commit/87c8a9b7a2d3c35296da28f9170b10ed1325ebea) first communication between test ws server and AR device
+
+![Employee data](Screenshots/firstSuccsessfullCommmunication.png?raw=true "Employee Data title")
