@@ -1,5 +1,18 @@
 <AUGMENTATION viewlist="normal,extended" name="testScene" desc="this is the first test Scene" viewswitch="false" viewdisplay="false">
+  
+  <VALUESERVER>
+    <WEBSOCKET url="ws://192.168.3.223:1880/ws/data" transmitter="send"/>
+  </VALUESERVER>
+
+  <!-- point defined by IMGTARGET in IRL -->
   <IMGTARGET file="Marker_20.jpg" width="10" extended="true">
+    
+    <!-- For displaying a changable signal lamp -->
+    <NODE tx="0" ty="10" tz="0.0" rx="90.0" sxyz="1.0" show="btnPressed">
+      <SIGNAL rgb="#00FF00" status="true"/>
+    </NODE>
+
+    <!-- For displaying a text -->
     <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
       <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88">
         <METADATA fallback="en">
@@ -14,15 +27,19 @@
         </METADATA>
       </TEXT>
     </NODE>
+
   </IMGTARGET>
+
+  <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
-     <NODE tx="0.5" ty="0.5">
-      <TEXT label="Text field" rgba="00ffffff" border="2" width="100" />
+
+    <NODE tx="0" ty="0" tz="10" sxyz="1.0" show="true">
+      <SWITCH w="1.0" h="1.0" d="0.2" rgb="#00FF00" on="true" alpha="1">
+        <TRANSMIT attribute="pressed" variable="btnPressed" transmitter="send"/>
+      </SWITCH>
     </NODE>
-     <NODE tx="0" ty="0" show="false">
-      <TEXT label="This is a example test" rgba="000000ff" backrgba="ffffff88" border="1"/>
-    </NODE>
-    <NODE tx="-35" ty="0" tz="100" sxyz="1" show="true">
+
+    <NODE tx="-55" ty="30" tz="100" sxyz="0.5" show="true">
       <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88">
         <METADATA fallback="en">
           <label>
@@ -36,5 +53,6 @@
         </METADATA>
       </TEXT>
     </NODE>
+
   </CAMERA>
 </AUGMENTATION>
