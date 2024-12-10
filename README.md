@@ -29,4 +29,6 @@ http://IP-ADRESS:8000/index.xml
 
 10.12.2024 commit [87c8a9b](https://github.com/Prodigg/SwissskillsARServer/commit/87c8a9b7a2d3c35296da28f9170b10ed1325ebea) first communication between test ws server and AR device
 
+Picture of Wireshark picturing communication between test ws server and AR device
+
 ![Employee data](Screenshots/firstSuccsessfullCommmunication.png?raw=true "Employee Data title")
