@@ -33,7 +33,7 @@
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
 
-    <NODE tx="0" ty="0" tz="10" sxyz="1.0" show="true">
+    <NODE tx="0" ty="-10" tz="10" sxyz="0.5" show="true">
       <SWITCH w="1.0" h="1.0" d="0.2" rgb="#00FF00" on="true" alpha="1">
         <TRANSMIT attribute="pressed" variable="btnPressed" transmitter="send"/>
       </SWITCH>
