@@ -32,3 +32,7 @@ http://IP-ADRESS:8000/index.xml
 Picture of Wireshark picturing communication between test ws server and AR device
 
 ![Employee data](Screenshots/firstSuccsessfullCommmunication.png?raw=true "Employee Data title")
+
+25.12.2024 commit [91f59bd](https://github.com/Prodigg/SwissskillsARServer/commit/91f59bd03aaa586e66dfbd01fe14f61f30e73370) first ws communication with NodeRed server
+
+![NodeRed ws communication](Screenshots/firstNodeRedCom.png?raw=true "NodeRed ws communication")
