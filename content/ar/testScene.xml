@@ -1,7 +1,8 @@
 <AUGMENTATION viewlist="normal,extended" name="testScene" desc="this is the first test Scene" viewswitch="false" viewdisplay="false">
   
-  <VALUESERVER>
-    <WEBSOCKET url="ws://192.168.3.223:1880/ws/data" transmitter="send"/>
+  <VALUESERVER predefined="{&quot;lmpRunning&quot;: &quot;false&quot;, &quot;lmpStopped&quot;: &quot;true&quot;, &quot;lmpError&quot;: &quot;false&quot;}">
+    <WEBSOCKET url="ws://192.168.1.77:1880/ws/ARDevice" transmitter="send"/>
+    <WEBSOCKET url="ws://192.168.1.77:1880/ws/PLC" transmitter="recive"/>
   </VALUESERVER>
 
   <!-- point defined by IMGTARGET in IRL -->
@@ -33,25 +34,25 @@
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
 
-    <NODE tx="0" ty="0" tz="10" sxyz="1.0" show="true">
+    <NODE tx="40" ty="30" tz="100" sxyz="10.0" show="true">
       <SWITCH w="1.0" h="1.0" d="0.2" rgb="#00FF00" on="true" alpha="1">
         <TRANSMIT attribute="pressed" variable="btnPressed" transmitter="send"/>
       </SWITCH>
     </NODE>
 
-    <NODE tx="-55" ty="30" tz="100" sxyz="0.5" show="true">
-      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88">
-        <METADATA fallback="en">
-          <label>
-            <en>
-              <![CDATA[ <align="left">test label (language: en) ]]>
-            </en>
-            <de>
-              <![CDATA[ <align="left">test label (language: de) ]]>
-            </de>
-          </label>
-        </METADATA>
-      </TEXT>
+    <!-- lamp displayin if machine is on -->
+    <NODE tx="-53" ty="29" tz="100" sxyz="2" show="true">
+      <SIGNAL rgb="0f0" status="@anim:lmpRunning"/>
+    </NODE>
+
+    <!-- lamp displayin if machine is off -->
+    <NODE tx="-53" ty="26" tz="100" sxyz="2" show="true">
+      <SIGNAL rgb="f00" status="@anim:lmpStopped"/>
+    </NODE>
+
+    <!-- lamp displayin if machine has an error -->
+    <NODE tx="-53" ty="23" tz="100" sxyz="2" show="true">
+      <SIGNAL rgb="f00" status="@anim:lmpError"/>
     </NODE>
 
   </CAMERA>
