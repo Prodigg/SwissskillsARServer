@@ -9,7 +9,7 @@
 To start the server run the following command in `content/ar`:
 
 ```
-python3 -m thhp.server
+python3 -m http.server
 ```
 
 Then in the festo diadaktic AR app type the following link:
