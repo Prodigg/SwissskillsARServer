@@ -1,32 +1,26 @@
 <AUGMENTATION viewlist="normal,extended" name="testScene" desc="this is the first test Scene" viewswitch="false" viewdisplay="false">
   
-  <VALUESERVER predefined="{&quot;lmpRunning&quot;: &quot;false&quot;, &quot;lmpStopped&quot;: &quot;true&quot;, &quot;lmpError&quot;: &quot;false&quot;}">
+  <VALUESERVER predefined="{&quot;lmpRunning&quot;: &quot;false&quot;, &quot;lmpStopped&quot;: &quot;true&quot;, &quot;lmpError&quot;: &quot;false&quot;, &quot;displayEMStop&quot; : &quot;false&quot;, &quot;displayQuittierung&quot; : &quot;false&quot;}">
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/ARDevice" transmitter="send"/>
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/PLC" transmitter="recive"/>
   </VALUESERVER>
 
   <!-- point defined by IMGTARGET in IRL -->
-  <IMGTARGET file="Marker_20.jpg" width="10" extended="true">
-    
-    <!-- For displaying a changable signal lamp -->
-    <NODE tx="0" ty="10" tz="0.0" rx="90.0" sxyz="1.0" show="btnPressed">
-      <SIGNAL rgb="#00FF00" status="true"/>
+  <IMGTARGET file="Controlpannel_Marker.jpg" width="10" extended="true">
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker Controlpannel_Marker.jpg"/>
     </NODE>
 
-    <!-- For displaying a text -->
-    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
-      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88">
-        <METADATA fallback="en">
-          <label>
-            <en>
-              <![CDATA[ <align="left">test ar label (language: en) ]]>
-            </en>
-            <de>
-              <![CDATA[ <align="left">test ar label (language: de) ]]>
-            </de>
-          </label>
-        </METADATA>
-      </TEXT>
+    <!-- For displaying EMStop Active (please relase) text -->
+    <NODE tx="-52" ty="15" tz="0" rx="90.0" sxyz="0.2" show="@anim:displayEMStop">
+      <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="EM-Stop Active (please reset)"/>
+    </NODE>
+
+    <!-- For displaying Quittierung (please press) text -->
+    <NODE tx="-15" ty="5" tz="0" rx="90.0" sxyz="0.2" show="@anim:displayQuittierung">
+      <TEXT rgba="#ffffffff" width="140" backrgba="#0000ffff" label="Please press me (Quittierung)"/>
     </NODE>
 
   </IMGTARGET>
@@ -34,7 +28,7 @@
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
 
-    <NODE tx="40" ty="30" tz="100" sxyz="10.0" show="true">
+    <NODE tx="40" ty="30" tz="20" sxyz="10.0" show="true">
       <SWITCH w="1.0" h="1.0" d="0.2" rgb="#00FF00" on="true" alpha="1">
         <TRANSMIT attribute="pressed" variable="btnPressed" transmitter="send"/>
       </SWITCH>
