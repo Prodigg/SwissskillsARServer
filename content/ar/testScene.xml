@@ -1,11 +1,25 @@
-<AUGMENTATION viewlist="normal,extended" name="testScene" desc="this is the first test Scene" viewswitch="false" viewdisplay="false">
+<AUGMENTATION viewlist="normal,sensorInfo,errors,all" name="mainScene" desc="this is the main scene for the AR visualisation of the Hausaufgabe I 4.0 machine" viewswitch="true" viewdisplay="true">
   
   <VALUESERVER predefined="{&quot;lmpRunning&quot;: &quot;false&quot;, &quot;lmpStopped&quot;: &quot;true&quot;, &quot;lmpError&quot;: &quot;false&quot;, &quot;displayEMStop&quot; : &quot;false&quot;, &quot;displayQuittierung&quot; : &quot;false&quot;}">
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/ARDevice" transmitter="send"/>
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/PLC" transmitter="recive"/>
   </VALUESERVER>
 
-  <!-- point defined by IMGTARGET in IRL -->
+<!-- pressure sensor marker (848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0) -->
+  <IMGTARGET file="markers/848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg" width="10" extended="false">
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg"/>
+    </NODE>
+
+  </IMGTARGET>
+
+  <!-- controlpannel marker -->
   <IMGTARGET file="markers/Controlpannel_Marker.jpg" width="10" extended="false">
 
     <!-- For displaying marker found img -->
@@ -19,51 +33,53 @@
     </NODE>
 
     <!-- For displaying EMStop Active (please relase) text -->
-    <NODE tx="-52" ty="15" tz="0" rx="90.0" sxyz="0.2" show="@anim:displayEMStop">
+    <NODE tx="-52" ty="15" tz="0" rx="90.0" sxyz="0.2" show="@anim:displayEMStop" view="normal,all,errors">
       <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="EM-Stop Active (please reset)"/>
     </NODE>
 
     <!-- For displaying Quittierung (please press) text -->
-    <NODE tx="-15" ty="5" tz="0" rx="90.0" sxyz="0.2" show="@anim:displayQuittierung">
+    <NODE tx="-15" ty="5" tz="0" rx="90.0" sxyz="0.2" show="@anim:displayQuittierung" view="normal,all,errors">
       <TEXT rgba="#ffffffff" width="140" backrgba="#0000ffff" label="Please press me (Quittierung)"/>
     </NODE>
 
     <!-- diplaying a sensor info plain -->
-    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" show="true">
+    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="sensorInfo,all" show="true">
       <!-- backround -->
-      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" show="true">
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/backround_color.png"/>
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
       <!-- sensor documnetation-->
-      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" show="true">
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
           <LINK refer="http://192.168.1.223:8000/documentation/defaultDocumentation.pdf"/>
         </MODEL>
       </NODE>
 
       <!-- sensor name -->
-      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" show="true">
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
         <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Temperature sensor B10"/>
       </NODE>
 
       <!-- optional description -->
-      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" show="true">
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="The sensor is a high-precision temperature sensor, capable of measuring temperatures from -40°C to 125°C with an accuracy of ±0.5°C. It operates at 3.3V supply voltage and communicates via I2C interface, ensuring easy integration with microcontrollers. The sensor features a fast response time of 1 second and low power consumption, making it ideal for embedded and battery-powered applications."/>
       </NODE>
     </NODE>
 
   </IMGTARGET>
+
+  
 
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
