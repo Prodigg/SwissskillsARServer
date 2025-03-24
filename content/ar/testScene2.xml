@@ -2,29 +2,16 @@
   <VALUESERVER>
     <WEBSOCKET url="ws://nodered.local:1880/ws/data"/>
   </VALUESERVER>
-  <IMGTARGET file="Marker_10.jpg">
-    <NODE tx="0.14" ty="0.2">
-      <COUNTER value="@anim:itemCount:1.5" intdigits="3" fractdigits="0"/>
+  <IMGTARGET file="markers/5c7d8221-0852-418d-a3ef-e39b266c6bf8.jpg" width="10" extended="false">
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
     </NODE>
-    <NODE tx="-0.1" ty="0.2" view="extended">
-      <VIEWER picture="http://srv.lan/cam/now.jpg" w="0.2" h="0.3"/>
-      <NODE ty="0.13" sxyz="0.1" view="extended">
-        <TEXT label="@anim:time" rgba="00ff" backrgba="8088"/>
-      </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="100" show="true">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg"/>
     </NODE>
-  </IMGTARGET>
-  <IMGTARGET file="Marker_20.jpg">
-    <NODE>
-      <MODEL file="obj/model.obj"/>
-      <NODE tx="0.15" ty="0.08" tz="0.02">
-        <LINK w="0.04" h="0.02" d="0.05" refer="http://srv.lan/info.htm">
-          <METADATA>
-            <refer>
-              <de>http://srv.lan/info-de.htm</de>
-            </refer>
-          </METADATA>
-        </LINK>
-      </NODE>
-    </NODE>
+
   </IMGTARGET>
 </AUGMENTATION>

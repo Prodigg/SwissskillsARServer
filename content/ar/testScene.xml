@@ -6,7 +6,7 @@
   </VALUESERVER>
 
 <!-- pressure sensor marker (848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0) -->
-  <IMGTARGET file="markers/848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg" width="10" extended="false">
+  <IMGTARGET file="markers/5c7d8221-0852-418d-a3ef-e39b266c6bf8.jpg" width="10" extended="false"> 
     <!-- For displaying marker found img -->
     <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
       <MODEL file="planexy" texture="images/marker_found_white.png"/>
@@ -18,9 +18,10 @@
     </NODE>
 
   </IMGTARGET>
+  
 
   <!-- controlpannel marker -->
-  <IMGTARGET file="markers/Controlpannel_Marker.jpg" width="10" extended="false">
+  <IMGTARGET file="markers/Controlpannel_Marker.png" width="10" extended="false">
 
     <!-- For displaying marker found img -->
     <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
