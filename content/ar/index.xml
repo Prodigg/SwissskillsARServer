@@ -1,14 +1,10 @@
-<DIRECTORY name="testScene (v1.0.0 - dev)">
+<DIRECTORY name="Hausaufgabe I4.0 AR visualiser (v1.0.0 - dev)">
     <METADATA fallback="en">
         <desc>
-            <de>
-                <![CDATA[ Dies ist ein test text (language: de) ]]>
-            </de>
             <en>
-                <![CDATA[ This is a test test (language: en) ]]>
+                <![CDATA[ Welcome to the Hasuaufgabe I4.0 AR visualisation. ]]>
             </en>
         </desc>
     </METADATA>
     <ENTRY url="testScene.xml"/>
-    <ENTRY url="testScene2.xml"/>
 </DIRECTORY>

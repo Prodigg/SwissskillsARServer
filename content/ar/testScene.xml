@@ -1,27 +1,12 @@
-<AUGMENTATION viewlist="normal,sensorInfo,errors,all" name="mainScene" desc="this is the main scene for the AR visualisation of the Hausaufgabe I 4.0 machine" viewswitch="true" viewdisplay="true">
+<AUGMENTATION viewlist="normal,sensorInfo,errors,all,debug" name="mainScene" desc="this is the main scene for the AR visualisation of the Hausaufgabe I 4.0 machine" viewswitch="true" viewdisplay="true">
   
   <VALUESERVER predefined="{&quot;lmpRunning&quot;: &quot;false&quot;, &quot;lmpStopped&quot;: &quot;true&quot;, &quot;lmpError&quot;: &quot;false&quot;, &quot;displayEMStop&quot; : &quot;false&quot;, &quot;displayQuittierung&quot; : &quot;false&quot;}">
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/ARDevice" transmitter="send"/>
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/PLC" transmitter="recive"/>
   </VALUESERVER>
 
-<!-- pressure sensor marker (848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0) -->
-  <IMGTARGET file="markers/5c7d8221-0852-418d-a3ef-e39b266c6bf8.jpg" width="10" extended="false"> 
-    <!-- For displaying marker found img -->
-    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
-      <MODEL file="planexy" texture="images/marker_found_white.png"/>
-    </NODE>
-
-    <!-- For displaying debug text -->
-    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
-      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg"/>
-    </NODE>
-
-  </IMGTARGET>
-  
-
   <!-- controlpannel marker -->
-  <IMGTARGET file="markers/Controlpannel_Marker.png" width="10" extended="false">
+  <IMGTARGET file="markers/Controlpannel_Marker.jpg" width="10" extended="false">
 
     <!-- For displaying marker found img -->
     <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
@@ -29,7 +14,7 @@
     </NODE>
 
     <!-- For displaying debug text -->
-    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true">
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
       <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker Controlpannel_Marker.jpg"/>
     </NODE>
 
@@ -80,7 +65,150 @@
 
   </IMGTARGET>
 
-  
+  <!-- pressure sensor marker (848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0) -->
+  <IMGTARGET file="markers/848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 848f5c0a-1fdf-43dd-b8e2-858b4c98bfa0.jpg"/>
+    </NODE>
+
+     <!-- diplaying a sensor info plain -->
+    <NODE tx="20" ty="5" tz="0" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="false"> <!-- no documentation avalable -->
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/defaultDocumentation.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Pneumatic ok B20"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor operates within a range of 0.4 to 1 MPa and can be configured to switch at a specific threshold. Operating voltage: 15–30V DC. Pressure range: 0.4–1 MPa. Festo part number: 8025360."/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+
+
+  <!-- part turntable present (419e7031-c129-4459-9d16-3cfd178e83da) -->
+  <IMGTARGET file="markers/419e7031-c129-4459-9d16-3cfd178e83da.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 419e7031-c129-4459-9d16-3cfd178e83da.jpg"/>
+    </NODE>
+
+     <!-- diplaying a sensor info plain -->
+    <NODE tx="-10" ty="5" tz="10" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="false"> <!-- no documentation avalable -->
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/defaultDocumentation.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Part Turntable Present B12 "/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is designed to detect whether a part is present on the turntable. It is a SOE-RT-M12-PS-K-LED sensor from Festo, with the article number 31336."/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+
+ <!-- linear Actuator Sensor Left (91f791ef-6eee-4484-ba3d-b2f94c68986f) -->
+  <IMGTARGET file="markers/91f791ef-6eee-4484-ba3d-b2f94c68986f.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 91f791ef-6eee-4484-ba3d-b2f94c68986f.jpg"/>
+    </NODE>
+
+     <!-- diplaying a sensor info plain -->
+    <NODE tx="-10" ty="2" tz="15" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/203672_documentation.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Linear Actuator Left B16"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a reed switch T-nut mounted for a linear actuator. It is an SMT-8M-A-PS-24V-E-0.3-M8D from Festo, with the article number 574334. The sensor detects when the linear actuator reaches its leftmost position."/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
 
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
