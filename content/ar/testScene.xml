@@ -113,7 +113,6 @@
     </NODE>
   </IMGTARGET>
 
-
   <!-- part turntable present (419e7031-c129-4459-9d16-3cfd178e83da) -->
   <IMGTARGET file="markers/419e7031-c129-4459-9d16-3cfd178e83da.jpg" width="10" extended="false"> 
     <!-- For displaying marker found img -->
@@ -209,8 +208,7 @@
       </NODE>
     </NODE>
   </IMGTARGET>
-
-
+  
 <!-- linear Actuator Sensor Right (67214149-dad7-4116-bb50-4b6ee9aa5e73) -->
   <IMGTARGET file="markers/67214149-dad7-4116-bb50-4b6ee9aa5e73.jpg" width="10" extended="false"> 
     <!-- For displaying marker found img -->
