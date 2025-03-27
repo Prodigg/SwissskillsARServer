@@ -210,6 +210,56 @@
     </NODE>
   </IMGTARGET>
 
+
+<!-- linear Actuator Sensor Right (67214149-dad7-4116-bb50-4b6ee9aa5e73) -->
+  <IMGTARGET file="markers/67214149-dad7-4116-bb50-4b6ee9aa5e73.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 67214149-dad7-4116-bb50-4b6ee9aa5e73.jpg"/>
+    </NODE>
+
+     <!-- diplaying a sensor info plain -->
+    <NODE tx="-15" ty="2" tz="15" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/203672_documentation.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Linear Actuator Right B17"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a reed switch T-nut mounted for a linear actuator. It is an SMT-8M-A-PS-24V-E-0.3-M8D from Festo, with the article number 574334. The sensor detects when the linear actuator reaches its rightmost position."/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+
+
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
 
