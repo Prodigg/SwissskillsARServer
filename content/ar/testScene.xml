@@ -307,6 +307,159 @@
     </NODE>
   </IMGTARGET>
 
+<!-- Convayorbelt sensors B5, B8, B7, B6 (5c7d8221-0852-418d-a3ef-e39b266c6bf8) -->
+  <IMGTARGET file="markers/5c7d8221-0852-418d-a3ef-e39b266c6bf8.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 5c7d8221-0852-418d-a3ef-e39b266c6bf8.jpg"/>
+    </NODE>
+
+     <!-- diplaying a sensor info plain Sensor B5 Storage Entrance -->
+    <NODE tx="-20" ty="2" tz="5" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/SOEG-RSP-Q30-PS-S-2L_2007-07b_719279D6.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Storage Entrance B5"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is an Retro-reflective sensor from Festo. It is the SOEG-RSP-Q30-PS-S-2L, with the article number 165331. It is used to detect whether a part has entered storage. Note: This product isn't avalable anymore. For replacement consider using: SOOE-RS-R-PNLK-T (8075666). "/>
+      </NODE>
+    </NODE>
+
+     <!-- diplaying a sensor info plain Sensor B8 convayorbelt metal present -->
+    <NODE tx="-25" ty="2" tz="30" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/203637_documentation.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Conveyor Belt Metal Present B8"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is an inductive proximity switch from Festo. It is the SIEN-M8B-PS-S-L, with article number 150387. It is used to determine whether a part is metal, ensuring it is stored in the correct position."/>
+      </NODE>
+    </NODE>
+
+     <!-- diplaying a sensor info plain Sensor B7 Entrance convayorbelt -->
+    <NODE tx="5" ty="2" tz="10" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/SOEG-L-Q30-PA-S-2L_2007-07b_719263D6.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Entrance Conveyor Belt B7"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a fiber-optic unit from Festo. It is the SOEG-L-Q30-P-A-S-2L, with article number 165327. It is used to detect whether a part is at the entrance of the conveyor belt.Note: This part is discontinued. For a replacement, consider the SOE4-FO-L-HF2-1P-M8 (552796)."/>
+      </NODE>
+    </NODE>
+
+     <!-- diplaying a sensor info plain Sensor B6 part sensor mettal Present -->
+    <NODE tx="0" ty="2" tz="40" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (off)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+        <MODEL file="planexy" texture="images/signal_off.png"/>
+      </NODE>
+
+      <!-- sensor PLC value (on)-->
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/signal_on.png"/>
+      </NODE>
+
+      <!-- sensor documnetation-->
+      <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+        <MODEL file="planexy" texture="images/book_squared_colored.png">
+          <LINK refer="http://192.168.1.223:8000/documentation/SOEG-L-Q30-PA-S-2L_2007-07b_719263D6.pdf"/>
+        </MODEL>
+      </NODE>
+
+      <!-- sensor name -->
+      <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Sensor Part Metal Present B6"/>
+      </NODE>
+
+      <!-- optional description -->
+      <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
+        <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a fiber-optic unit from Festo. It is the SOEG-L-Q30-P-A-S-2L, with article number 165327. It is used to detect whether a part is in the correct position for B8 to measure if the part is metal. Note: This part is discontinued. For a replacement, consider the SOE4-FO-L-HF2-1P-M8 (552796)."/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+
   <!-- Static components on display -->
   <CAMERA x="0" y="0" distance="0.1">
 
