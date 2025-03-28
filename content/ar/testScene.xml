@@ -28,8 +28,8 @@
       <TEXT rgba="#ffffffff" width="140" backrgba="#0000ffff" label="Please press me (Quittierung)"/>
     </NODE>
 
-    <!-- diplaying a sensor info plain -->
-    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="sensorInfo,all" show="true">
+    <!-- diplaying a example sensor info plain -->
+    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="sensorInfo,all" show="false">
       <!-- backround -->
       <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/backround_color.png"/>
@@ -60,6 +60,29 @@
       <!-- optional description -->
       <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="The sensor is a high-precision temperature sensor, capable of measuring temperatures from -40°C to 125°C with an accuracy of ±0.5°C. It operates at 3.3V supply voltage and communicates via I2C interface, ensuring easy integration with microcontrollers. The sensor features a fast response time of 1 second and low power consumption, making it ideal for embedded and battery-powered applications."/>
+      </NODE>
+    </NODE>
+
+    <!-- diplaying a example error info plain -->
+    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="errors,all" show="true">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-TT404-PART-MISSING"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="The SOE-RT-M12-PS-K-LED sensor on the turntable has failed to detect the presence of a part. This may indicate that the part is missing, the sensor is misaligned or obstructed, or there is an electrical or mechanical failure. Possible causes include an absent part, sensor misalignment, dirt on the lens, wiring issues, or complete sensor failure."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: Check if the part is correctly placed, inspect the sensor for dirt, damage, or misalignment, verify wiring and power connections, and replace the sensor if the issue persists."/>
       </NODE>
     </NODE>
 
