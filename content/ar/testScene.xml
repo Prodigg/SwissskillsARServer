@@ -1,6 +1,6 @@
 <AUGMENTATION viewlist="normal,sensorInfo,errors,all,debug" name="mainScene" desc="this is the main scene for the AR visualisation of the Hausaufgabe I 4.0 machine" viewswitch="true" viewdisplay="true">
   
-  <VALUESERVER predefined="{&quot;lmpRunning&quot;: &quot;false&quot;, &quot;lmpStopped&quot;: &quot;true&quot;, &quot;lmpError&quot;: &quot;false&quot;, &quot;displayEMStop&quot; : &quot;false&quot;, &quot;displayQuittierung&quot; : &quot;false&quot;}">
+  <VALUESERVER predefined="{&quot;lmpRunning&quot;:&quot;false&quot;,&quot;lmpStopped&quot;:&quot;true&quot;,&quot;lmpError&quot;:&quot;false&quot;,&quot;displayEMStop&quot;:&quot;false&quot;,&quot;displayQuittierung&quot;:&quot;false&quot;,&quot;PneumaticOkB20_sensorStatus&quot;:&quot;false&quot;,&quot;PartTurntablePresentB12_sensorStatus&quot;:&quot;false&quot;,&quot;LinearActuatorLeftB16_sensorStatus&quot;:&quot;false&quot;,&quot;LinearActuatorRightB17_sensorStatus&quot;:&quot;false&quot;,&quot;TurntablePositionReachedB13_sensorStatus&quot;:&quot;false&quot;,&quot;StorageEntranceB5_sensorStatus&quot;:&quot;false&quot;,&quot;ConveyorBeltMetalPresentB8_sensorStatus&quot;:&quot;false&quot;,&quot;EntranceConveyorBeltB7_sensorStatus&quot;:&quot;false&quot;,&quot;SensorPartMetalPresentB6_sensorStatus&quot;:&quot;false&quot;}">
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/ARDevice" transmitter="send"/>
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/PLC" transmitter="recive"/>
   </VALUESERVER>
@@ -108,12 +108,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:PneumaticOkB20_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:PneumaticOkB20_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -156,12 +156,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:PartTurntablePresentB12_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:PartTurntablePresentB12_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -174,7 +174,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Part Turntable Present B12 "/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Part Turntable Present B12"/>
       </NODE>
 
       <!-- optional description -->
@@ -204,12 +204,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:LinearActuatorLeftB16_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:LinearActuatorLeftB16_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -252,12 +252,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:LinearActuatorRightB17_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:LinearActuatorRightB17_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -300,12 +300,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:TurntablePositionReachedB13_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:TurntablePositionReachedB13_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -348,12 +348,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:StorageEntranceB5_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:StorageEntranceB5_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -383,12 +383,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:ConveyorBeltMetalPresentB8_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:ConveyorBeltMetalPresentB8_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -418,12 +418,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:EntranceConveyorBeltB7_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:EntranceConveyorBeltB7_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -453,12 +453,12 @@
       </NODE>
 
       <!-- sensor PLC value (off)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="false">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" collapse="@anim:SensorPartMetalPresentB6_sensorStatus">
         <MODEL file="planexy" texture="images/signal_off.png"/>
       </NODE>
 
       <!-- sensor PLC value (on)-->
-      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
+      <NODE tx="0.5" ty="0" tz="-0.5" rx="0" sxyz="1" view="sensorInfo,all" show="@anim:SensorPartMetalPresentB6_sensorStatus">
         <MODEL file="planexy" texture="images/signal_on.png"/>
       </NODE>
 
@@ -482,13 +482,7 @@
   </IMGTARGET>
 
   <!-- Static components on display -->
-  <CAMERA x="0" y="0" distance="0.1">
-
-    <NODE tx="40" ty="30" tz="20" sxyz="10.0" show="true">
-      <SWITCH w="1.0" h="1.0" d="0.2" rgb="#00FF00" on="true" alpha="1">
-        <TRANSMIT attribute="pressed" variable="btnPressed" transmitter="send"/>
-      </SWITCH>
-    </NODE>
+  <CAMERA x="0" y="0" scaleto="h" distance="0.1">
 
     <!-- lamp displayin if machine is on -->
     <NODE tx="-53" ty="29" tz="100" sxyz="2" show="true">
@@ -504,6 +498,5 @@
     <NODE tx="-53" ty="23" tz="100" sxyz="2" show="true">
       <SIGNAL rgb="f00" status="@anim:lmpError"/>
     </NODE>
-
   </CAMERA>
 </AUGMENTATION>
