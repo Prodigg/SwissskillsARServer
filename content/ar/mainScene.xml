@@ -1,6 +1,6 @@
 <AUGMENTATION viewlist="normal,sensorInfo,errors,all,debug" name="mainScene" desc="this is the main scene for the AR visualisation of the Hausaufgabe I 4.0 machine" viewswitch="true" viewdisplay="true">
   
-  <VALUESERVER predefined="{&quot;lmpRunning&quot;:&quot;false&quot;,&quot;lmpStopped&quot;:&quot;true&quot;,&quot;lmpError&quot;:&quot;false&quot;,&quot;displayEMStop&quot;:&quot;false&quot;,&quot;displayQuittierung&quot;:&quot;false&quot;,&quot;PneumaticOkB20_sensorStatus&quot;:&quot;false&quot;,&quot;PartTurntablePresentB12_sensorStatus&quot;:&quot;false&quot;,&quot;LinearActuatorLeftB16_sensorStatus&quot;:&quot;false&quot;,&quot;LinearActuatorRightB17_sensorStatus&quot;:&quot;false&quot;,&quot;TurntablePositionReachedB13_sensorStatus&quot;:&quot;false&quot;,&quot;StorageEntranceB5_sensorStatus&quot;:&quot;false&quot;,&quot;ConveyorBeltMetalPresentB8_sensorStatus&quot;:&quot;false&quot;,&quot;EntranceConveyorBeltB7_sensorStatus&quot;:&quot;false&quot;,&quot;SensorPartMetalPresentB6_sensorStatus&quot;:&quot;false&quot;}">
+  <VALUESERVER predefined="{&quot;lmpRunning&quot;:&quot;false&quot;,&quot;lmpStopped&quot;:&quot;true&quot;,&quot;lmpError&quot;:&quot;false&quot;,&quot;displayEMStop&quot;:&quot;false&quot;,&quot;displayQuittierung&quot;:&quot;false&quot;,&quot;PneumaticOkB20_sensorStatus&quot;:&quot;false&quot;,&quot;PartTurntablePresentB12_sensorStatus&quot;:&quot;false&quot;,&quot;LinearActuatorLeftB16_sensorStatus&quot;:&quot;false&quot;,&quot;LinearActuatorRightB17_sensorStatus&quot;:&quot;false&quot;,&quot;TurntablePositionReachedB13_sensorStatus&quot;:&quot;false&quot;,&quot;StorageEntranceB5_sensorStatus&quot;:&quot;false&quot;,&quot;ConveyorBeltMetalPresentB8_sensorStatus&quot;:&quot;false&quot;,&quot;EntranceConveyorBeltB7_sensorStatus&quot;:&quot;false&quot;,&quot;SensorPartMetalPresentB6_sensorStatus&quot;:&quot;false&quot;,&quot;ERR_PNEU_LOW_PR_402&quot;:&quot;false&quot;,&quot;ERR_LD_START_LEFT_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_LD_START_RIGHT_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_LD_MOVE_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_RT_MOVE_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_Y2_MOVE_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_Y2_START_DOWN_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_Y2_START_UP_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_Y3_MOVE_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_Y3_START_DOWN_408_TIMEOUT&quot;:&quot;false&quot;,&quot;ERR_Y3_START_UP_408_TIMEOUT&quot;:&quot;false&quot;}">
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/ARDevice" transmitter="send"/>
     <WEBSOCKET url="ws://192.168.1.77:1880/ws/PLC" transmitter="recive"/>
   </VALUESERVER>
@@ -29,7 +29,7 @@
     </NODE>
 
     <!-- diplaying a example sensor info plain -->
-    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="sensorInfo,all" show="false">
+    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="sensorInfo,all" show="false" collapse="true">
       <!-- backround -->
       <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/backround_color.png"/>
@@ -48,7 +48,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/defaultDocumentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/defaultDocumentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -64,7 +64,7 @@
     </NODE>
 
     <!-- diplaying a example error info plain -->
-    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="errors,all" show="true">
+    <NODE tx="0" ty="5" tz="20" rx="0" sxyz="5" view="errors,all" show="true" collapse="true">
       <!-- backround -->
       <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
         <MODEL file="planexy" texture="images/backround_color_error.png"/>
@@ -120,7 +120,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="false"> <!-- no documentation avalable -->
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/defaultDocumentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/defaultDocumentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -134,6 +134,30 @@
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor operates within a range of 0.4 to 1 MPa and can be configured to switch at a specific threshold. Operating voltage: 15–30V DC. Pressure range: 0.4–1 MPa. Festo part number: 8025360."/>
       </NODE>
     </NODE>
+
+    <!-- diplaying error info plain (ERR-PNEU-LOW-PR-402) -->
+    <NODE tx="20 " ty="5" tz="30.3" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_PNEU_LOW_PR_402">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-PNEU-LOW-PR-402"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Low Pneumatic Pressure | The pneumatic system is operating below the required pressure."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could be due to a leak, insufficient air supply, malfunctioning compressor, or pressure regulator issues. Check for leaks, verify air supply and compressor operation, and ensure that pressure regulators are correctly set."/>
+      </NODE>
+    </NODE>
+
   </IMGTARGET>
 
   <!-- part turntable present (419e7031-c129-4459-9d16-3cfd178e83da) -->
@@ -168,7 +192,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="false"> <!-- no documentation avalable -->
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/defaultDocumentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/defaultDocumentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -216,7 +240,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/203672_documentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/203672_documentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -230,6 +254,30 @@
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a reed switch T-nut mounted for a linear actuator. It is an SMT-8M-A-PS-24V-E-0.3-M8D from Festo, with the article number 574334. The sensor detects when the linear actuator reaches its leftmost position."/>
       </NODE>
     </NODE>
+
+    <!-- diplaying error info plain (ERR-LD-START-LEFT-408-TIMEOUT) -->
+    <NODE tx="10.3" ty="2" tz="15" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_LD_START_LEFT_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-LD-START-LEFT-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Pneumatic Linear Drive Start Movement Timeout (Left) | The pneumatic Linear Drive failed to start moving to the right within the expected time. A mismatch has been detected between the expected state of the sensor and its actual value (B16)."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could indicate a sensor issue, air pressure problems, mechanical resistance, or obstructions in the system. Check the sensor calibration, verify air pressure levels, and ensure that the compressor, valves, and the pneumatic drive are functioning properly."/>
+      </NODE>
+    </NODE>
+
   </IMGTARGET>
   
 <!-- linear Actuator Sensor Right (67214149-dad7-4116-bb50-4b6ee9aa5e73) -->
@@ -264,7 +312,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/203672_documentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/203672_documentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -276,6 +324,66 @@
       <!-- optional description -->
       <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a reed switch T-nut mounted for a linear actuator. It is an SMT-8M-A-PS-24V-E-0.3-M8D from Festo, with the article number 574334. The sensor detects when the linear actuator reaches its rightmost position."/>
+      </NODE>
+    </NODE>
+
+    <!-- diplaying error info plain (ERR-LD-START-RIGHT-408-TIMEOUT) -->
+    <NODE tx="5.3" ty="2" tz="15" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_LD_START_RIGHT_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-LD-START-RIGHT-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Pneumatic Linear Drive Start Movement Timeout (Right) | The pneumatic Linear Drive failed to start moving to the left within the expected time. A mismatch has been detected between the expected state of the sensor and its actual value (B17)."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could indicate a sensor calibration issue, air pressure problems, mechanical resistance, or obstructions. Ensure proper sensor calibration, verify air pressure, and check that the compressor, valves, and pneumatic system are functioning correctly."/>
+      </NODE>
+    </NODE>
+
+  </IMGTARGET>
+
+<!-- linear Actuator Sensor (ad26bfd9-999c-4fcc-aa85-35920aba32bf) -->
+  <IMGTARGET file="markers/ad26bfd9-999c-4fcc-aa85-35920aba32bf.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker ad26bfd9-999c-4fcc-aa85-35920aba32bf.jpg"/>
+    </NODE>
+
+     <!-- diplaying error info plain (ERR-LD-MOVE-408-TIMEOUT) -->
+    <NODE tx="-10" ty="5" tz="10" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_LD_MOVE_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-LD-MOVE-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Linear Drive Movement Timeout | The pneumatic Linear Drive took too long to complete its movement."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: Check for air pressure issues, leaks, or mechanical resistance, and ensure the compressor and valves are functioning properly."/>
       </NODE>
     </NODE>
   </IMGTARGET>
@@ -312,7 +420,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/203637_documentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/203637_documentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -324,6 +432,29 @@
       <!-- optional description -->
       <NODE tx="0.1" ty="0" tz="-2.2" rx="90.0" sxyz="0.02" view="sensorInfo,all" show="true">
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is an inductive proximity switch from Festo. It is the SIEN-M8B-PS-S-L, with the article number 150387. It is used to detect whether the turntable has reached its position for the next part to be picked up by the gripper."/>
+      </NODE>
+    </NODE>
+
+     <!-- diplaying error info plain (ERR-RT-MOVE-408-TIMEOUT) -->
+    <NODE tx="-30.3" ty="2" tz="5" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_RT_MOVE_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-RT-MOVE-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Rotary Table Movement Timeout | The Rotary Table took too long to complete its movement."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: Check for mechanical resistance, electrical issues, or misalignment. Ensure the motor and power supply are functioning properly."/>
       </NODE>
     </NODE>
   </IMGTARGET>
@@ -360,7 +491,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/SOEG-RSP-Q30-PS-S-2L_2007-07b_719279D6.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/SOEG-RSP-Q30-PS-S-2L_2007-07b_719279D6.pdf"/>
         </MODEL>
       </NODE>
 
@@ -395,7 +526,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/203637_documentation.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/203637_documentation.pdf"/>
         </MODEL>
       </NODE>
 
@@ -430,7 +561,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/SOEG-L-Q30-PA-S-2L_2007-07b_719263D6.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/SOEG-L-Q30-PA-S-2L_2007-07b_719263D6.pdf"/>
         </MODEL>
       </NODE>
 
@@ -465,7 +596,7 @@
       <!-- sensor documnetation-->
       <NODE tx="0.5" ty="0" tz="-1.5" rx="0" sxyz="1" view="sensorInfo,all" show="true">
         <MODEL file="planexy" texture="images/book_squared_colored.png">
-          <LINK refer="http://192.168.1.223:8000/documentation/SOEG-L-Q30-PA-S-2L_2007-07b_719263D6.pdf"/>
+          <LINK refer="http://192.168.1.77:8000/documentation/SOEG-L-Q30-PA-S-2L_2007-07b_719263D6.pdf"/>
         </MODEL>
       </NODE>
 
@@ -479,6 +610,171 @@
         <TEXT rgba="#000000ff" width="190" backrgba="#ffffff00" label="This sensor is a fiber-optic unit from Festo. It is the SOEG-L-Q30-P-A-S-2L, with article number 165327. It is used to detect whether a part is in the correct position for B8 to measure if the part is metal. Note: This part is discontinued. For a replacement, consider the SOE4-FO-L-HF2-1P-M8 (552796)."/>
       </NODE>
     </NODE>
+  </IMGTARGET>
+
+<!-- Y2 position (cae50e59-0e1b-48a3-ba48-5f90d2106ced) -->
+  <IMGTARGET file="markers/cae50e59-0e1b-48a3-ba48-5f90d2106ced.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker cae50e59-0e1b-48a3-ba48-5f90d2106ced.jpg"/>
+    </NODE>
+
+     <!-- diplaying error info plain (ERR-Y2-MOVE-408-TIMEOUT) -->
+    <NODE tx="-10" ty="5" tz="10" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_Y2_MOVE_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-Y2-MOVE-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Y2 Axis Movement Timeout | The Y2 pneumatic cylinder took too long to complete its movement."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: Check for air pressure issues, leaks, mechanical resistance, or faulty components. Ensure the compressor and valves are functioning properly."/>
+      </NODE>
+    </NODE>
+
+    <!-- diplaying error info plain (ERR-Y2-START-DOWN-408-TIMEOUT) -->
+    <NODE tx="10.3" ty="5" tz="10" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_Y2_START_DOWN_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-Y2-START-DOWN-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Pneumatic Y2 Axis Start Movement Timeout (Down) | The pneumatic Y2 axis failed to start moving up within the expected time. A mismatch has been detected between the expected state of the sensor and its actual value (B1). "/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could indicate a sensor issue, air pressure problems, mechanical resistance, or obstructions in the system. Check the sensor calibration, verify air pressure levels, and ensure that the compressor, valves, and pneumatic components are functioning properly."/>
+      </NODE>
+    </NODE>
+
+    <!-- diplaying error info plain (ERR-Y2-START-UP-408-TIMEOUT) -->
+    <NODE tx="-10" ty="5" tz="30.3" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_Y2_START_UP_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-Y2-START-UP-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Pneumatic Y2 Axis Start Movement Timeout (Up) | The pneumatic Y2 axis failed to start moving down within the expected time. A mismatch has been detected between the expected state of the sensor and its actual value (B2)."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could indicate a sensor issue, air pressure problems, mechanical resistance, or obstructions in the system. Check the sensor calibration, verify air pressure levels, and ensure that the compressor, valves, and pneumatic components are functioning properly."/>
+      </NODE>
+    </NODE>
+  </IMGTARGET>
+
+<!-- Y3 position (21aa8611-975a-4cd7-8d64-fbb39c7b54c3) -->
+  <IMGTARGET file="markers/21aa8611-975a-4cd7-8d64-fbb39c7b54c3.jpg" width="10" extended="false"> 
+    <!-- For displaying marker found img -->
+    <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
+      <MODEL file="planexy" texture="images/marker_found_white.png"/>
+    </NODE>
+
+    <!-- For displaying debug text -->
+    <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 21aa8611-975a-4cd7-8d64-fbb39c7b54c3.jpg"/>
+    </NODE>
+
+     <!-- diplaying error info plain (ERR-Y3-MOVE-408-TIMEOUT) -->
+    <NODE tx="-10" ty="5" tz="10" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_Y3_MOVE_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-Y3-MOVE-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Y3 Axis Movement Timeout | The Y3 pneumatic cylinder took too long to complete its movement."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: Check for air pressure issues, leaks, mechanical resistance, or faults in the pneumatic system. Ensure the compressor and valves are operating correctly."/>
+      </NODE>
+    </NODE>
+
+    <!-- diplaying error info plain (ERR-Y3-START-DOWN-408-TIMEOUT) -->
+    <NODE tx="-30.3" ty="5" tz="10" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_Y3_START_DOWN_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-Y3-START-DOWN-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Pneumatic Y3 Axis Start Movement Timeout (Down) | The pneumatic Y3 axis failed to start moving up within the expected time. A mismatch has been detected between the expected state of the sensor and its actual value (B3)."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could indicate a sensor issue, air pressure problems, mechanical resistance, or obstructions in the system. Check the sensor calibration, verify air pressure levels, and ensure that the compressor, valves, and pneumatic components are functioning properly."/>
+      </NODE>
+    </NODE>
+
+    <!-- diplaying error info plain (ERR-Y3-START-UP-408-TIMEOUT) -->
+    <NODE tx="-10" ty="5" tz="30.3" rx="0" sxyz="5" view="errors,all" show="true" collapse="@anim:ERR_Y3_START_UP_408_TIMEOUT">
+      <!-- backround -->
+      <NODE tx="2" ty="-0.01" tz="-2" rx="0" sxyz="4" view="errors,all" show="true">
+        <MODEL file="planexy" texture="images/backround_color_error.png"/>
+      </NODE>
+
+      <!-- error name -->
+      <NODE tx="0.1" ty="0" tz="0" rx="90.0" sxyz="0.05" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="77" backrgba="#ffffff00" label="ERR-Y3-START-UP-408-TIMEOUT"/>
+      </NODE>
+
+      <!-- optional error description -->
+      <NODE tx="0.1" ty="0" tz="-1.2" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Pneumatic Y3 Axis Start Movement Timeout (Up) | The pneumatic Y3 axis failed to start moving down within the expected time. A mismatch has been detected between the expected state of the sensor and its actual value (B4)."/>
+      </NODE>
+
+      <!-- optional potential causes or additional information -->
+      <NODE tx="0.1" ty="0" tz="-2.7" rx="90.0" sxyz="0.02" view="errors,all" show="true">
+        <TEXT rgba="#ffffffff" width="190" backrgba="#ffffff00" label="Recommended actions: This could indicate a sensor issue, air pressure problems, mechanical resistance, or obstructions in the system. Check the sensor calibration, verify air pressure levels, and ensure that the compressor, valves, and pneumatic components are functioning properly."/>
+      </NODE>
+    </NODE>
+
   </IMGTARGET>
 
   <!-- Static components on display -->
@@ -498,5 +794,65 @@
     <NODE tx="-53" ty="23" tz="100" sxyz="2" show="true">
       <SIGNAL rgb="f00" status="@anim:lmpError"/>
     </NODE>
+
+    <!-- For displaying small error Text -->
+    <NODE tx="-53" ty="-5" tz="100" rx="0" sxyz="0.3" show="true">
+      <!-- Display error ERR_PNEU_LOW_PR_402 -->
+      <NODE tx="0" ty="0" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_PNEU_LOW_PR_402">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_PNEU_LOW_PR_402"/>
+      </NODE>
+
+      <!-- Display error ERR_LD_START_LEFT_408_TIMEOUT -->
+      <NODE tx="0" ty="-10" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_LD_START_LEFT_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_LD_START_LEFT_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_LD_START_RIGHT_408_TIMEOUT -->
+      <NODE tx="0" ty="-20" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_LD_START_RIGHT_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_LD_START_RIGHT_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_LD_MOVE_408_TIMEOUT -->
+      <NODE tx="0" ty="-30" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_LD_MOVE_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_LD_MOVE_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_RT_MOVE_408_TIMEOUT -->
+      <NODE tx="0" ty="-40" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_RT_MOVE_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_RT_MOVE_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_Y2_MOVE_408_TIMEOUT -->
+      <NODE tx="0" ty="-50" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_Y2_MOVE_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_Y2_MOVE_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_Y2_START_DOWN_408_TIMEOUT -->
+      <NODE tx="0" ty="-60" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_Y2_START_DOWN_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_Y2_START_DOWN_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_Y2_START_UP_408_TIMEOUT -->
+      <NODE tx="0" ty="-70" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_Y2_START_UP_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_Y2_START_UP_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_Y3_MOVE_408_TIMEOUT -->
+      <NODE tx="0" ty="-80" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_Y3_MOVE_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_Y3_MOVE_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_Y3_START_DOWN_408_TIMEOUT -->
+      <NODE tx="0" ty="-90" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_Y3_START_DOWN_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_Y3_START_DOWN_408_TIMEOUT"/>
+      </NODE>
+
+      <!-- Display error ERR_Y3_START_UP_408_TIMEOUT -->
+      <NODE tx="0" ty="-100" tz="0" rx="0" sxyz="1" show="true" collapse="@anim:ERR_Y3_START_UP_408_TIMEOUT">
+        <TEXT rgba="#ffffffff" width="140" backrgba="#b60000ff" label="ERR_Y3_START_UP_408_TIMEOUT"/>
+      </NODE>
+
+    </NODE>
+
   </CAMERA>
 </AUGMENTATION>
