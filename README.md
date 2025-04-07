@@ -4,7 +4,7 @@
 
 - python 3
 
-# start server
+# start server Local
 
 To start the server run the following command in `content/ar`:
 
