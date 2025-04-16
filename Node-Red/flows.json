@@ -1,0 +1,689 @@
+[
+    {
+        "id": "1ff4de75c39dd3e5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cf1d569bcd8d4cca",
+        "type": "group",
+        "z": "1ff4de75c39dd3e5",
+        "name": "IO-Link master test",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "1e274b264df9902e",
+            "a5633a1fa375a00c",
+            "54aab44eeffc1c0e",
+            "fc2a0b16e03e285c",
+            "58f6eaf85e32f575",
+            "7218d92442320ed6",
+            "2888475df471a492",
+            "531220d8e227f9af",
+            "63219f17ed7e81dc",
+            "194939afa31c0950"
+        ],
+        "x": 194,
+        "y": 579,
+        "w": 912,
+        "h": 382
+    },
+    {
+        "id": "d75bc53d1b1272a5",
+        "type": "group",
+        "z": "1ff4de75c39dd3e5",
+        "name": "Deprecated",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "21c767d50c8e48cc",
+            "a54365051954351c",
+            "7608d862913032c4",
+            "fe217a5fd9a358c2",
+            "ce9a790b0ec1e6c1",
+            "64ce98171b674fb4",
+            "1550a030f0214695",
+            "e5efe6f9396ebc66"
+        ],
+        "x": 1134,
+        "y": 739,
+        "w": 752,
+        "h": 222
+    },
+    {
+        "id": "dc5f38c5fd76121e",
+        "type": "group",
+        "z": "1ff4de75c39dd3e5",
+        "name": "Production (active)",
+        "style": {
+            "fill": "#ffbfbf",
+            "label": true,
+            "fill-opacity": "0.54"
+        },
+        "nodes": [
+            "b2dd0697ce96a4f5",
+            "32dd83b9a895ebce",
+            "96ae9cfb5319f45f",
+            "5a64c5a302b796bd",
+            "a8dccfad16d21c9c",
+            "c9304e842afcdf26",
+            "65d449684abda62a",
+            "347bc8acf1edf580",
+            "834ab59c8a4c95ad"
+        ],
+        "x": 194,
+        "y": 399,
+        "w": 1092,
+        "h": 162
+    },
+    {
+        "id": "5e9efc3c26ca1495",
+        "type": "websocket-listener",
+        "path": "/ws/PLC",
+        "wholemsg": "false"
+    },
+    {
+        "id": "11baad08f2479ad2",
+        "type": "websocket-listener",
+        "path": "/ws/ARDevice",
+        "wholemsg": "false"
+    },
+    {
+        "id": "38cd967b04649062",
+        "type": "mqtt-broker",
+        "name": "test",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "21c767d50c8e48cc",
+        "type": "websocket in",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "",
+        "server": "11baad08f2479ad2",
+        "client": "",
+        "x": 1250,
+        "y": 820,
+        "wires": [
+            [
+                "ce9a790b0ec1e6c1",
+                "1550a030f0214695"
+            ]
+        ]
+    },
+    {
+        "id": "a54365051954351c",
+        "type": "websocket in",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "",
+        "server": "5e9efc3c26ca1495",
+        "client": "",
+        "x": 1270,
+        "y": 920,
+        "wires": [
+            [
+                "64ce98171b674fb4",
+                "e5efe6f9396ebc66"
+            ]
+        ]
+    },
+    {
+        "id": "7608d862913032c4",
+        "type": "websocket out",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "",
+        "server": "5e9efc3c26ca1495",
+        "client": "",
+        "x": 1750,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "fe217a5fd9a358c2",
+        "type": "websocket out",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "",
+        "server": "11baad08f2479ad2",
+        "client": "",
+        "x": 1770,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "ce9a790b0ec1e6c1",
+        "type": "change",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_session",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1500,
+        "y": 820,
+        "wires": [
+            [
+                "7608d862913032c4"
+            ]
+        ]
+    },
+    {
+        "id": "64ce98171b674fb4",
+        "type": "change",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_session",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1480,
+        "y": 920,
+        "wires": [
+            [
+                "fe217a5fd9a358c2"
+            ]
+        ]
+    },
+    {
+        "id": "1e274b264df9902e",
+        "type": "get-portcurrent",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "get-portcurrent",
+        "ip": "192.168.66.100",
+        "port": "8",
+        "x": 460,
+        "y": 620,
+        "wires": [
+            [
+                "54aab44eeffc1c0e"
+            ]
+        ]
+    },
+    {
+        "id": "a5633a1fa375a00c",
+        "type": "inject",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "1e274b264df9902e"
+            ]
+        ]
+    },
+    {
+        "id": "54aab44eeffc1c0e",
+        "type": "debug",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "fc2a0b16e03e285c",
+        "type": "in-DIOHub",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "in-DIOHub",
+        "pinPort": "0",
+        "fwFeatures": "1",
+        "x": 750,
+        "y": 740,
+        "wires": [
+            [
+                "54aab44eeffc1c0e"
+            ]
+        ]
+    },
+    {
+        "id": "58f6eaf85e32f575",
+        "type": "inject",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 740,
+        "wires": [
+            [
+                "7218d92442320ed6"
+            ]
+        ]
+    },
+    {
+        "id": "7218d92442320ed6",
+        "type": "get-processdata",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "get-processdata",
+        "ip": "192.168.66.100",
+        "devicealias": "master1port8",
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "fc2a0b16e03e285c"
+            ]
+        ]
+    },
+    {
+        "id": "2888475df471a492",
+        "type": "get-deviceevents",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "get-deviceevents",
+        "ip": "192.168.66.100",
+        "devicealias": "master1port6",
+        "x": 590,
+        "y": 840,
+        "wires": [
+            [
+                "54aab44eeffc1c0e"
+            ]
+        ]
+    },
+    {
+        "id": "531220d8e227f9af",
+        "type": "inject",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 360,
+        "y": 820,
+        "wires": [
+            [
+                "2888475df471a492"
+            ]
+        ]
+    },
+    {
+        "id": "63219f17ed7e81dc",
+        "type": "get-deviceevents",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "get-deviceevents",
+        "ip": "192.168.66.100",
+        "devicealias": "master1port8",
+        "x": 590,
+        "y": 920,
+        "wires": [
+            [
+                "54aab44eeffc1c0e"
+            ]
+        ]
+    },
+    {
+        "id": "194939afa31c0950",
+        "type": "inject",
+        "z": "1ff4de75c39dd3e5",
+        "g": "cf1d569bcd8d4cca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 900,
+        "wires": [
+            [
+                "63219f17ed7e81dc"
+            ]
+        ]
+    },
+    {
+        "id": "1550a030f0214695",
+        "type": "debug",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "ARDevice > PLC",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1490,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "e5efe6f9396ebc66",
+        "type": "debug",
+        "z": "1ff4de75c39dd3e5",
+        "g": "d75bc53d1b1272a5",
+        "name": "PLC > ARDevice",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1470,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "b2dd0697ce96a4f5",
+        "type": "mqtt in",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "topic": "PLC",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "38cd967b04649062",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 770,
+        "y": 520,
+        "wires": [
+            [
+                "5a64c5a302b796bd",
+                "347bc8acf1edf580"
+            ]
+        ]
+    },
+    {
+        "id": "32dd83b9a895ebce",
+        "type": "mqtt out",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "topic": "ARDevice",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "38cd967b04649062",
+        "x": 800,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "96ae9cfb5319f45f",
+        "type": "inject",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/test",
+        "payload": "{\"testOut\":\"true\"}",
+        "payloadType": "str",
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "32dd83b9a895ebce"
+            ]
+        ]
+    },
+    {
+        "id": "5a64c5a302b796bd",
+        "type": "debug",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a8dccfad16d21c9c",
+        "type": "inject",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/test",
+        "payload": "{\"testOut\":\"false\"}",
+        "payloadType": "str",
+        "x": 400,
+        "y": 480,
+        "wires": [
+            [
+                "32dd83b9a895ebce"
+            ]
+        ]
+    },
+    {
+        "id": "c9304e842afcdf26",
+        "type": "websocket in",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "server": "11baad08f2479ad2",
+        "client": "",
+        "x": 310,
+        "y": 520,
+        "wires": [
+            [
+                "834ab59c8a4c95ad"
+            ]
+        ]
+    },
+    {
+        "id": "65d449684abda62a",
+        "type": "websocket out",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "server": "5e9efc3c26ca1495",
+        "client": "",
+        "x": 1190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "347bc8acf1edf580",
+        "type": "change",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_session",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 520,
+        "wires": [
+            [
+                "65d449684abda62a"
+            ]
+        ]
+    },
+    {
+        "id": "834ab59c8a4c95ad",
+        "type": "change",
+        "z": "1ff4de75c39dd3e5",
+        "g": "dc5f38c5fd76121e",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "_session",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 520,
+        "wires": [
+            [
+                "32dd83b9a895ebce"
+            ]
+        ]
+    }
+]
