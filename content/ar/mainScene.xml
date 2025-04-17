@@ -6,7 +6,7 @@
   </VALUESERVER>
 
   <!-- controlpannel marker -->
-  <IMGTARGET file="markers/Controlpannel_Marker.jpg" width="10" extended="false">
+  <IMGTARGET file="markers/287cde48-556c-408e-a196-42c04b9eea4f.jpg" width="10" extended="false">
 
     <!-- For displaying marker found img -->
     <NODE tx="0" ty="0" tz="0" rx="0" sxyz="17" show="true">
@@ -15,7 +15,7 @@
 
     <!-- For displaying debug text -->
     <NODE tx="0" ty="0" tz="0" rx="90.0" sxyz="0.1" show="true" view="debug">
-      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker Controlpannel_Marker.jpg"/>
+      <TEXT rgba="#000000ff" width="140" backrgba="#ffffff88" label="Marker 287cde48-556c-408e-a196-42c04b9eea4f.jpg"/>
     </NODE>
 
     <!-- For displaying EMStop Active (please relase) text -->
