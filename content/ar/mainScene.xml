@@ -126,7 +126,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Pneumatic ok B20"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Pneumatic ok -52BP1"/>
       </NODE>
 
       <!-- optional description -->
@@ -198,7 +198,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Part Turntable Present B12"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Part Turntable Present -45BP1"/>
       </NODE>
 
       <!-- optional description -->
@@ -246,7 +246,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Linear Actuator Left B16"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Linear Actuator Left -52BG6"/>
       </NODE>
 
       <!-- optional description -->
@@ -318,7 +318,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Linear Actuator Right B17"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Linear Actuator Right -52BG5"/>
       </NODE>
 
       <!-- optional description -->
@@ -426,7 +426,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Turntable Position Reached B13"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Turntable Position Reached -52BG2"/>
       </NODE>
 
       <!-- optional description -->
@@ -497,7 +497,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Storage Entrance B5"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Storage Entrance -52BG4"/>
       </NODE>
 
       <!-- optional description -->
@@ -532,7 +532,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Conveyor Belt Metal Present B8"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Conveyor Belt Metal Present -52BG3"/>
       </NODE>
 
       <!-- optional description -->
@@ -567,7 +567,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Entrance Conveyor Belt B7"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Entrance Conveyor Belt -53BG5"/>
       </NODE>
 
       <!-- optional description -->
@@ -602,7 +602,7 @@
 
       <!-- sensor name -->
       <NODE tx="1.3" ty="0" tz="0" rx="90.0" sxyz="0.05" view="sensorInfo,all" show="true">
-        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Sensor Part Metal Present B6"/>
+        <TEXT rgba="#000000ff" width="50" backrgba="#ffffff00" label="Sensor Part Metal Present -53BG6"/>
       </NODE>
 
       <!-- optional description -->
